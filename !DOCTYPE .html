@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shimiyasin - A Culinary Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <style>
+        /* Custom font import and application */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfcfc;
+            color: #1f2937;
+        }
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+        .btn-primary {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+        }
+        .scrolled-nav {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #fef2f2;
+        }
+        /* Style for the particle container */
+        #particles-js {
+            pointer-events: none; /* Allows clicks to go through to hero buttons */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav id="navbar" class="bg-white sticky top-0 z-10 transition-shadow duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-red-600 tracking-wider heading-font">
+                        SHIMIYASIN
+                    </a>
+                </div>
+
+                <div class="hidden md:flex space-x-8">
+                    <a href="#hero" class="text-gray-600 hover:text-red-600 transition duration-150" aria-label="Home">Home</a>
+                    <a href="#menu" class="text-gray-600 hover:text-red-600 transition duration-150" aria-label="Menu">Menu</a>
+                    <a href="#quality" class="text-gray-600 hover:text-red-600 transition duration-150" aria-label="Quality Promise">Quality</a>
+                    <a href="#contact" class="text-gray-600 hover:text-red-600 transition duration-150" aria-label="Reserve a Table">Reserve</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-500" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle mobile menu">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#hero" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-red-50 hover:text-red-600">Home</a>
+                <a href="#menu" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-red-50 hover:text-red-600">Menu</a>
+                <a href="#quality" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-red-50 hover:text-red-600">Quality</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-red-50 hover:text-red-600">Reserve</a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="hero" class="relative overflow-hidden bg-cover bg-center" 
+            style="background-image: url('https://images.unsplash.com/photo-1606820854416-439b3305ff39?auto=format&fit=crop&w=1920&q=80'); background-attachment: fixed;">
+        
+        <div id="particles-js" class="absolute inset-0 z-0"></div>
+
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+        
+        <div class="relative z-5 pt-16 pb-24 sm:pt-24 lg:pt-32 lg:pb-40"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+                <h1 class="heading-font text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-tight mb-4 drop-shadow-lg">
+                    The Finest Dining, Experience the <span class="text-red-400">Flavors of Kerala</span>
+                </h1>
+                <p class="mt-3 max-w-md mx-auto text-base text-gray-200 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl drop-shadow">
+                    Located in the heart of Kochi, **SHIMIYASIN** offers masterfully prepared dishes using only the freshest, locally-sourced ingredients.
+                </p>
+                <div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
+                    <div class="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
+                        <a id="book-table-btn" href="javascript:void(0)" class="btn-primary w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10 shadow-xl transition duration-300">
+                            Book a Table
+                        </a>
+                        <a href="#menu" class="w-full flex items-center justify-center px-8 py-3 border border-red-300 text-base font-medium rounded-xl text-red-300 bg-transparent hover:bg-red-50/20 md:py-4 md:text-lg md:px-10 shadow-md transition duration-300">
+                            View Our Full Menu
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="menu" class="py-16 sm:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-12" data-aos="fade-up">
+                <h2 class="text-base text-red-600 font-semibold tracking-wide uppercase">Featured Dishes</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl heading-font">
+                    Our Kerala Culinary Heritage
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1626522961019-a403ac4eb35a?auto=format&fit=crop&w=600&q=80" alt="Kerala Prawn Moilee" class="w-full h-48 object-cover rounded-xl mb-4" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x400/fecaca/991b1b?text=Kerala+Prawn+Curry';" />
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Chemmeen Moilee</h3>
+                    <p class="text-gray-600 mb-4">Succulent prawns simmered in a creamy, mildly spiced coconut milk and turmeric gravy. Served with appam.</p>
+                    <span class="text-2xl font-extrabold text-red-600">₹100</span>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1628290031916-5b93ade6506a?auto=format&fit=crop&w=600&q=80" alt="Kerala Beef Fry" class="w-full h-48 object-cover rounded-xl mb-4" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x400/fecaca/991b1b?text=Spicy+Beef+Fry';" />
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Kerala Beef Ularthiyathu</h3>
+                    <p class="text-gray-600 mb-4">Tender pieces of beef slow-roasted in a spicy masala mix, coconut slivers, and curry leaves.</p>
+                    <span class="text-2xl font-extrabold text-red-600">₹120</span>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1582571518018-b3f7f2b60e7d?auto=format&fit=crop&w=600&q=80" alt="Palada Payasam" class="w-full h-48 object-cover rounded-xl mb-4" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x400/fecaca/991b1b?text=Kerala+Dessert';" />
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Palada Pradhaman</h3>
+                    <p class="text-gray-600 mb-4">The King of Payasams: delicate rice flakes cooked in sweetened milk, cardamom, and ghee.</p>
+                    <span class="text-2xl font-extrabold text-red-600">₹100</span>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1585937402035-7c0146033100?auto=format&fit=crop&w=600&q=80" alt="Malabar Fish Curry" class="w-full h-48 object-cover rounded-xl mb-4" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x400/fecaca/991b1b?text=Fresh+Fish+Curry';" />
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Meen Vattichathu</h3>
+                    <p class="text-gray-600 mb-4">A fiery red fish curry cooked in a traditional clay pot with Kudampuli (Malabar tamarind) and rich spices.</p>
+                    <span class="text-2xl font-extrabold text-red-600">₹150</span>
+                </div>
+                </div>
+
+            <div class="mt-16 pt-8 border-t border-gray-200" data-aos="fade-up">
+                <h3 class="text-2xl font-extrabold text-gray-900 mb-4 text-center heading-font">
+                    ✨ Dish Knowledge Hub
+                </h3>
+                <div class="max-w-2xl mx-auto bg-white p-6 rounded-xl shadow-lg border border-red-100">
+                    <p class="text-gray-700 mb-4 text-sm">
+                        Curious about a specific dish? Enter its name (e.g., Sadya, Appam, Puttu) to learn about its history and flavor profile!
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 mb-4">
+                        <input type="text" id="dish-name-input" placeholder="Enter dish name (e.g., Kappa Biriyani)" class="flex-grow p-3 border border-gray-300 rounded-xl focus:ring-red-500 focus:border-red-500">
+                        <button id="explain-dish-button" class="btn-primary flex-shrink-0 px-6 py-3 text-white bg-red-600 hover:bg-red-700 rounded-xl font-medium shadow-md transition duration-150">
+                            Explain Dish ✨
+                        </button>
+                    </div>
+                    <div id="dish-explainer-spinner" class="hidden text-center">
+                        <svg class="animate-spin h-5 w-5 text-red-600 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </div>
+                    <div id="dish-explainer-result" class="mt-4 text-gray-700 p-4 bg-gray-100 rounded-xl text-sm border border-gray-200">
+                        Enter a dish name and click "Explain Dish" to learn more!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quality" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center" data-aos="fade-up">
+                <h2 class="text-base text-red-600 font-semibold tracking-wide uppercase">Our Promise</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl heading-font">
+                    Commitment to Quality, Freshness, and Service
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-8 md:gap-y-10">
+                    <div class="relative bg-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-red-600 mb-4">
+                            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </div>
+                        <dt class="text-lg leading-6 font-medium text-gray-900">
+                            Farm-to-Table Fresh
+                        </dt>
+                        <dd class="mt-2 text-base text-gray-500">
+                            We source our produce daily from local farms, ensuring every ingredient is at peak flavor and quality.
+                        </dd>
+                    </div>
+
+                    <div class="relative bg-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-red-600 mb-4">
+                            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v4m-2-4h4m-2 0l-2 4h-2l-2-4h-2l-2 4h-2m10-4v-4m0-4H7m4 0h-4m12 4v4m0 0l-2-4h-2l-2 4h-2l-2-4H7m4 0h-4m12 4v4m0 0l-2-4h-2l-2 4h-2l-2-4H7m4 0h-4" />
+                            </svg>
+                        </div>
+                        <dt class="text-lg leading-6 font-medium text-gray-900">
+                            Culinary Masters
+                        </dt>
+                        <dd class="mt-2 text-base text-gray-500">
+                            Our executive chefs bring decades of experience, crafting classic dishes with inventive, modern techniques.
+                        </dd>
+                    </div>
+
+                    <div class="relative bg-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-red-600 mb-4">
+                            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </div>
+                        <dt class="text-lg leading-6 font-medium text-gray-900">
+                            Inviting Atmosphere
+                        </dt>
+                        <dd class="mt-2 text-base text-gray-500">
+                            A warm, elegant dining room perfect for business meetings, family celebrations, or an intimate dinner for two.
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+             <div class="text-center mb-8" data-aos="fade-up">
+                <h3 class="text-3xl font-extrabold text-white mb-2 heading-font">Reserve & Tools</h3>
+                <p class="text-gray-400">Call us, book your table online, or check out our AI-inspired daily special.</p>
+            </div>
+
+            <div class="max-w-2xl mx-auto bg-gray-700 p-6 rounded-xl shadow-xl border border-red-500 mb-10" data-aos="fade-up">
+                <h3 class="text-xl font-bold text-white mb-4 text-center heading-font">
+                    Chef's AI-Powered Daily Special
+                </h3>
+                <p class="text-gray-300 mb-4 text-sm text-center">
+                    Tap to generate a unique, highly creative daily special with an **AI-generated image** based on seasonal Kerala ingredients.
+                </p>
+                <div class="text-center mb-6">
+                    <button id="generate-special-button" class="btn-primary inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-xl text-white bg-red-600 hover:bg-red-700 shadow-md transition duration-150">
+                        Generate Today's Special ✨
+                    </button>
+                </div>
+                <div id="special-generator-spinner" class="hidden text-center mb-4">
+                    <svg class="animate-spin h-5 w-5 text-red-400 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                </div>
+                
+                <div id="special-generator-result" class="mt-4 text-gray-900 text-sm">
+                    
+                    <div id="ai-image-container" class="hidden mb-4 rounded-xl overflow-hidden shadow-lg border border-gray-500">
+                        <img id="special-dish-image" src="" alt="AI-Generated Daily Special" class="w-full h-64 object-cover">
+                    </div>
+                    
+                    <div id="ai-text-container">
+                         <p class="text-gray-400 text-center">Click the button to see what the chef is preparing today!</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="mb-10 max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl" data-aos="fade-up">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15717.345869315516!2d76.2721669466782!3d9.97597148902816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d74489a5011%3A0x637f2a1b16e0339d!2sMarine%20Drive%2C%20Kochi%2C%20Kerala!5e0!3m2!1sen!2sin!4v1731603248888!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Location Map of Shimiyasin Restaurant in Marine Drive, Kochi"></iframe>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-12 mb-8 text-center" data-aos="fade-up">
+                <div class="text-gray-400">
+                    <p class="font-semibold text-white">Location</p>
+                    <p>R8X4+5QG Chandiroor, Kerala, 688537</p>
+                </div>
+                <div class="text-gray-400">
+                    <p class="font-semibold text-white">Call Us</p>
+                    <p><a href="tel:+917736107936" class="hover:text-red-400 transition duration-150">+91 77361 07936</a></p>
+                </div>
+                <div class="text-gray-400">
+                    <p class="font-semibold text-white">Email</p>
+                    <p><a href="mailto:shimisatheesan@gmail.com" class="hover:text-red-400 transition duration-150">shimisatheesan@gmail.com</a></p>
+                </div>
+            </div>
+
+            <p class="mt-8 text-center text-base text-gray-400">
+                © 2025 Shimiyasin. All rights reserved.
+            </p>
+        </div>
+    </footer>
+    
+    <div id="booking-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50 flex items-center justify-center" aria-modal="true" role="dialog">
+        <div class="bg-white p-8 rounded-xl shadow-2xl max-w-sm w-full relative transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" data-aos="zoom-in">
+            <button id="close-modal-btn" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            <div class="text-center">
+                <h3 class="text-2xl leading-6 font-extrabold text-gray-900 heading-font mb-4">
+                    Ready to Book Your Table? 📞
+                </h3>
+                <div class="mt-2">
+                    <p class="text-lg text-gray-600 mb-6">
+                        Please call us directly to confirm your reservation.
+                    </p>
+                    <a href="tel:+917736107936" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-xl shadow-sm text-white bg-red-600 hover:bg-red-700 btn-primary transition duration-150">
+                        <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                        +91 77361 07936
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            mirror: false
+        });
+    </script>
+
+    <script>
+        // Global Constants
+        const apiKey = ""; // API key will be provided at runtime
+        const MODEL_NAME = "gemini-2.5-flash-preview-09-2025";
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_NAME}:generateContent?key=${apiKey}`;
+
+        // Helper function for API calls with exponential backoff
+        async function callGeminiApi(payload, maxRetries = 5, delay = 1000) {
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const response = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        if (response.status === 429 || response.status >= 500) {
+                            throw new Error(`Retryable HTTP error: ${response.status}`);
+                        }
+                        const errorResult = await response.json();
+                        return { error: errorResult.error?.message || `HTTP error! Status: ${response.status}` };
+                    }
+
+                    const result = await response.json();
+                    const candidate = result.candidates?.[0];
+
+                    if (candidate && candidate.content?.parts?.[0]?.text) {
+                        const text = candidate.content.parts[0].text;
+                        let sources = [];
+                        const groundingMetadata = candidate.groundingMetadata;
+                        if (groundingMetadata && groundingMetadata.groundingAttributions) {
+                            sources = groundingMetadata.groundingAttributions
+                                .map(attribution => ({
+                                    uri: attribution.web?.uri,
+                                    title: attribution.web?.title,
+                                }))
+                                .filter(source => source.uri && source.title);
+                        }
+                        return { text, sources };
+                    } else {
+                         if (candidate?.finishReason === 'SAFETY') {
+                            return { error: "The response was blocked due to a safety policy violation. Please try a different query." };
+                        }
+                        return { error: "Received an empty or malformed response from the model." };
+                    }
+                } catch (error) {
+                    if (i === maxRetries - 1) {
+                        return { error: `Failed to fetch from Gemini API after ${maxRetries} attempts. Error: ${error.message}` };
+                    }
+                    await new Promise(resolve => setTimeout(resolve, delay * (2 ** i) + Math.random() * 500));
+                }
+            }
+        }
+
+
+        // Feature 1: Dish Explainer Logic
+        async function explainDish() {
+            const dishNameInput = document.getElementById('dish-name-input');
+            const dishName = dishNameInput.value.trim();
+            const resultDiv = document.getElementById('dish-explainer-result');
+            const spinner = document.getElementById('dish-explainer-spinner');
+            const button = document.getElementById('explain-dish-button');
+
+            if (!dishName) {
+                resultDiv.innerHTML = '<p class="text-red-500">Please enter a dish name to explain.</p>';
+                return;
+            }
+
+            resultDiv.innerHTML = '<p class="text-gray-500">Thinking...</p>';
+            spinner.classList.remove('hidden');
+            button.disabled = true;
+
+            const systemPrompt = "You are a friendly and knowledgeable culinary guide for a high-end Kerala restaurant. Explain the dish requested by the user. Focus on key ingredients, flavor profile (e.g., spicy, tangy, sweet), and its cultural significance in a brief, two-paragraph response. Use Markdown for formatting.";
+            const userQuery = `Explain the dish: "${dishName}".`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+            };
+
+            const response = await callGeminiApi(payload);
+
+            spinner.classList.add('hidden');
+            button.disabled = false;
+
+            if (response.error) {
+                resultDiv.innerHTML = `<p class="text-red-600 font-medium">Chef's Note: I apologize, there was an issue retrieving information on that dish right now. Please try a different dish or check back later.</p><p class="mt-2 text-xs text-red-400">Error Details: ${response.error}</p>`;
+            } else {
+                resultDiv.innerHTML = `<p class="whitespace-pre-wrap">${response.text}</p>`;
+            }
+        }
+        
+        // NEW (SIMULATED) FUNCTION:
+        async function generateImageFromPrompt(dishDescription) {
+            console.log("Simulating AI Image generation for:", dishDescription);
+            // Simulate API call delay
+            await new Promise(resolve => setTimeout(resolve, 1500)); // 1.5 second delay
+            
+            // Return a dynamic placeholder image that includes part of the dish name
+            const promptText = encodeURIComponent(dishDescription.split('\n')[0].substring(0, 40)); 
+            return `https://placehold.co/600x400/c92a2a/ffffff?text=AI-Image-of-${promptText}...`;
+        }
+
+        // UPDATED Feature 2: Daily Special Generator Logic (with AI Image)
+        async function generateDailySpecial() {
+            const textContainer = document.getElementById('ai-text-container');
+            const imageContainer = document.getElementById('ai-image-container');
+            const dishImage = document.getElementById('special-dish-image');
+            
+            const spinner = document.getElementById('special-generator-spinner');
+            const button = document.getElementById('generate-special-button');
+
+            // Reset UI
+            textContainer.innerHTML = ''; // Clear old text
+            imageContainer.classList.add('hidden'); // Hide image container
+            dishImage.src = '';
+            spinner.classList.remove('hidden');
+            button.disabled = true;
+
+            const systemPrompt = "You are an executive chef for a high-end restaurant in Kochi, Kerala. Using the current date/season (which you will find using Google Search), conceive a creative and unique Kerala-inspired 'Daily Special' dish. Provide a title (e.g., The Malabar Sunset), a 2-3 sentence description of the dish, and list the 3 primary seasonal/local ingredients used. Format the output professionally with bolding for emphasis, starting with the title.";
+            const userQuery = "Generate today's unique Daily Special dish for a high-end restaurant in Kochi, focusing on seasonal ingredients found in Kerala now.";
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                tools: [{ "google_search": {} }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+            };
+
+            // 1. Get the text description first
+            const textResponse = await callGeminiApi(payload);
+
+            // Handle errors for text generation
+            if (textResponse.error) {
+                spinner.classList.add('hidden');
+                button.disabled = false;
+                textContainer.innerHTML = `<div class="bg-gray-900 p-4 rounded-xl shadow-inner border border-red-800">
+                                            <h4 class="text-xl font-bold text-red-400 mb-2">Service Unavailable</h4>
+                                            <p class="text-gray-300">Our AI Chef is taking a break. Please check our traditional menu for now!</p>
+                                            <p class="mt-2 text-xs text-red-400">Error Details: ${textResponse.error}</p>
+                                          </div>`;
+                return;
+            }
+            
+            // 2. NOW, SIMULATE THE IMAGE GENERATION
+            textContainer.innerHTML = `<p class="text-gray-400 text-center">Generating AI image of the new dish...</p>`;
+            const imageResponseUrl = await generateImageFromPrompt(textResponse.text);
+
+            // 3. All API calls are done, hide spinner
+            spinner.classList.add('hidden');
+            button.disabled = false;
+
+            // 4. Populate the Image
+            dishImage.src = imageResponseUrl;
+            imageContainer.classList.remove('hidden'); // Show the image container
+
+            // 5. Populate the Text and Citations
+            let output = `<div class="bg-gray-100 p-4 rounded-xl shadow-inner border border-gray-300">
+                                <h4 class="text-xl font-bold text-red-700 mb-2">✨ Today's Inspired Special ✨</h4>
+                                <p class="whitespace-pre-wrap text-gray-800">${textResponse.text}</p>
+                              </div>`;
+
+            if (textResponse.sources && textResponse.sources.length > 0) {
+                output += `<div class="mt-4 p-3 bg-gray-600 rounded-xl">
+                                <h5 class="text-sm font-semibold text-white mb-2">Knowledge Source (Grounded by Google Search)</h5>
+                                <ul class="space-y-1 text-xs text-gray-300">`;
+                textResponse.sources.slice(0, 3).forEach((source, index) => { // Limit to 3 sources
+                    output += `<li><span class="font-bold mr-1">${index + 1}.</span> <a href="${source.uri}" target="_blank" class="hover:text-red-400 transition duration-150 truncate block">${source.title || source.uri}</a></li>`;
+                });
+                output += `</ul></div>`;
+            }
+
+            textContainer.innerHTML = output; // Add the final text output
+        }
+
+        // Attach event listeners after DOM content is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // VFX Particle Effect Logic
+            if (typeof tsParticles !== 'undefined') {
+                tsParticles.load("particles-js", {
+                    particles: {
+                        number: { value: 70, density: { enable: true, value_area: 800 } },
+                        color: { value: "#ffffff" },
+                        shape: { type: "circle" },
+                        opacity: {
+                            value: 0.4,
+                            random: true,
+                            anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false }
+                        },
+                        size: {
+                            value: 2,
+                            random: true,
+                            anim: { enable: false }
+                        },
+                        line_linked: { enable: false },
+                        move: {
+                            enable: true,
+                            speed: 1,
+                            direction: "top", // Makes particles rise
+                            random: true,
+                            straight: false,
+                            out_mode: "out",
+                            bounce: false,
+                        }
+                    },
+                    interactivity: { detect_on: "canvas", events: { onhover: { enable: false }, onclick: { enable: false } } },
+                    retina_detect: true
+                });
+            }
+
+            // Sticky Nav Logic
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled-nav');
+                } else {
+                    navbar.classList.remove('scrolled-nav');
+                }
+            });
+
+            // Mobile menu logic
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = mobileMenu.querySelectorAll('a');
+
+            const toggleMenu = () => {
+                const isExpanded = menuButton.getAttribute('aria-expanded') === 'true' || false;
+                menuButton.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.classList.toggle('hidden');
+            };
+
+            menuButton.addEventListener('click', toggleMenu);
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        toggleMenu();
+                    }
+                });
+            });
+
+            // NEW: Booking Modal Logic
+            const bookTableBtn = document.getElementById('book-table-btn');
+            const bookingModal = document.getElementById('booking-modal');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+
+            const closeModal = () => {
+                bookingModal.classList.add('hidden');
+                document.body.style.overflow = ''; // Restore page scroll
+            };
+
+            if (bookTableBtn) {
+                bookTableBtn.addEventListener('click', () => {
+                    bookingModal.classList.remove('hidden');
+                    // Prevent page scroll when modal is open
+                    document.body.style.overflow = 'hidden'; 
+                });
+            }
+
+            if (closeModalBtn) {
+                closeModalBtn.addEventListener('click', closeModal);
+            }
+            
+            // Close modal when clicking outside of it (on the backdrop)
+            if (bookingModal) {
+                 bookingModal.addEventListener('click', (e) => {
+                    if (e.target === bookingModal) {
+                        closeModal();
+                    }
+                });
+            }
+
+
+            // Gemini Feature Event Listeners
+            const explainButton = document.getElementById('explain-dish-button');
+            if (explainButton) {
+                explainButton.addEventListener('click', explainDish);
+            }
+
+            const generateButton = document.getElementById('generate-special-button');
+            if (generateButton) {
+                generateButton.addEventListener('click', generateDailySpecial);
+            }
+        });
+    </script>
+</body>
+</html>
